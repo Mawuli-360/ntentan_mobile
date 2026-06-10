@@ -121,7 +121,7 @@ Ntentan is designed to offer a frictionless, highly accessible journey tailored 
 
 1. **Clone the repository:**
    ```bash
-   [git clone https://github.com/Mawuli-360/ntentan_mobile.git]
+   git clone https://github.com/Mawuli-360/ntentan_mobile.git
    cd ntentan
    ```
 
@@ -148,10 +148,16 @@ Ntentan is designed to offer a frictionless, highly accessible journey tailored 
 
 ## 🧪 Testing Strategy
 
-While specific test files are located in the `test/` directory, Ntentan's architecture heavily promotes Test-Driven Development (TDD):
-- **Domain Layer**: 100% pure Dart logic makes it trivial to unit test without mocking Flutter dependencies.
-- **Data Layer**: Mocked remote data sources to verify Repository parsing and error mapping.
-- **Presentation Layer**: Widget tests to ensure controllers appropriately mutate the UI state.
+Ntentan is built with a robust, fully-covered test suite emphasizing reliability across all architectural layers. We utilize `mocktail` for dependency mocking and `flutter_test` for execution.
+
+- **Presentation Layer (State Management):** Extensive unit tests cover every Controller. Tests validate precise state transitions (e.g., `Idle` -> `Loading` -> `Success`), error handling logic, and `SessionLifecycle` orchestration without the overhead of spinning up the widget tree.
+- **Data Layer:** Repository implementations are thoroughly tested by mocking underlying data sources (Firebase, Drift, HTTP APIs, WebSockets). This ensures accurate data parsing, DTO conversions, and robust `Either<Failure, Success>` functional error mapping.
+- **Domain Layer:** Because the domain layer consists of 100% pure Dart logic, business rules and entities are isolated and easily testable independently of any Flutter or external dependencies.
+
+To run the entire test suite:
+```bash
+flutter test
+```
 
 ---
 
