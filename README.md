@@ -121,7 +121,7 @@ Ntentan is designed to offer a frictionless, highly accessible journey tailored 
 
 1. **Clone the repository:**
    ```bash
-   [git clone https://github.com/your-org/ntentan.git](https://github.com/Mawuli-360/ntentan_mobile.git)
+   [git clone https://github.com/Mawuli-360/ntentan_mobile.git]
    cd ntentan
    ```
 
