@@ -1,0 +1,15 @@
+flavors:
+  dev:
+    app:
+      name: "Ntentan Dev"
+    android:
+      applicationId: "com.ntentan.app.dev"
+    ios:
+      bundleId: "com.ntentan.app.dev"
+  prod:
+    app:
+      name: "Ntentan"
+    android:
+      applicationId: "com.ntentan.app"
+    ios:
+      bundleId: "com.ntentan.app"
