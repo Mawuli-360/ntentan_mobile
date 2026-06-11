@@ -19,8 +19,12 @@ Future<void> main() async {
       options: DefaultFirebaseOptions.currentPlatform,
     );
 
-    F.appFlavor =
-        Flavor.values.firstWhere((element) => element.name == appFlavor);
+    F.appFlavor = appFlavor == null
+        ? Flavor.prod
+        : Flavor.values.firstWhere(
+            (element) => element.name == appFlavor,
+            orElse: () => Flavor.prod,
+          );
 
     await initDependencies();
     runApp(const NtentanApp());

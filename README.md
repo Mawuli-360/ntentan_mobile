@@ -100,7 +100,13 @@ Ntentan is designed to offer a frictionless, highly accessible journey tailored 
 - **Quick Actions:** Easy access to core features like the Voice Assistant, Scanner, and Settings.
 
 ### 4. Specialized Accessibility Features
-- **Voice Assistant:** An accessible conversational AI interface. Users can record and send audio queries, and the backend AI processes the audio and responds. The app then reads the response aloud using native Text-to-Speech (TTS) or plays the server-provided audio directly.
+- **Voice Assistant:** An accessible conversational AI interface designed around specific, intuitive gestures:
+  1. **Activate:** The user performs a **long press** to activate the voice assistant and start recording.
+  2. **Speak:** The user speaks their query naturally.
+  3. **Send:** Once finished speaking, the user performs a **second long press** to stop recording and send the audio to the backend AI.
+  4. **Close:** To dismiss or close the voice assistant, the user performs a **three-finger tap** (or triple tap).
+  
+  Once processed, the system reads the response aloud using native Text-to-Speech (TTS) or plays the server-provided audio directly, providing a highly intuitive and eyes-free feedback loop.
 - **Medication Scanner:** Integrates the device's camera with real-time sockets and ML vision to read medication labels aloud, assisting with safe dosage management.
 
 ### 5. Emergency (SOS) Flow
