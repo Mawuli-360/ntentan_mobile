@@ -178,18 +178,19 @@ class AssistantController extends ChangeNotifier {
   }
 
   Future<void> _handleResponse(AssistantResponse response) async {
-    if (response.content.isNotEmpty) {
-      _addMessageToHistory(VoiceChatMessage(false, response.content));
+    final cleanContent = response.content.replaceAll('*', '');
+
+    if (cleanContent.isNotEmpty) {
+      _addMessageToHistory(VoiceChatMessage(false, cleanContent));
     }
 
     if (response.audioBase64 != null && response.audioBase64!.isNotEmpty) {
       if (!_isDisposed) {
         await _mediaService.playBase64Audio(response.audioBase64!);
       }
-    } else if (response.content.isNotEmpty) {
+    } else if (cleanContent.isNotEmpty) {
       if (!_isDisposed) {
-        await _ttsService.speak(response.content,
-            language: state.selectedLanguage);
+        await _ttsService.speak(cleanContent, language: state.selectedLanguage);
       }
     }
 
